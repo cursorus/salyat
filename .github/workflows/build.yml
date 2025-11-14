@@ -1,0 +1,41 @@
+name: Build Unsigned IPA
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout repo
+      - uses: actions/checkout@v3
+
+      - name: Select Xcode
+        run: sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+
+      - name: Build .xcarchive (unsigned)
+        run: xcodebuild \
+          -scheme WebApp \
+          -sdk iphoneos \
+          -configuration Release \
+          -archivePath build/WebApp.xcarchive \
+          archive \
+          CODE_SIGN_IDENTITY="" \
+          CODE_SIGNING_REQUIRED=NO \
+          CODE_SIGNING_ALLOWED=NO
+
+      - name: Export unsigned IPA
+        run: |
+          mkdir -p unsigned
+          xcodebuild -exportArchive \
+            -archivePath build/WebApp.xcarchive \
+            -exportPath unsigned \
+            -exportOptionsPlist ExportOptions.plist \
+            CODE_SIGNING_ALLOWED=NO
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v3
+        with:
+          name: unsigned-ipa
+          path: unsigned/*.ipa
