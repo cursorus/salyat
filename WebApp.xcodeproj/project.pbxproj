@@ -1,0 +1,61 @@
+
+// !$*UTF8*$!
+{
+    archiveVersion = 1;
+    classes = {};
+    objectVersion = 56;
+    objects = {
+
+/* Begin PBXFileReference section */
+        1 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; };
+        2 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebAppApp.swift; };
+        3 = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+        10 = {
+            isa = PBXGroup;
+            children = (1,2,3);
+            path = WebApp;
+            sourceTree = "<group>";
+        };
+        11 = {
+            isa = PBXGroup;
+            children = (10,);
+            sourceTree = "<group>";
+        };
+/* End PBXGroup section */
+
+/* Begin PBXProject section */
+        20 = {
+            isa = PBXProject;
+            buildConfigurationList = 21;
+            compatibilityVersion = "Xcode 14.0";
+            developmentRegion = en;
+            hasScannedForEncodings = 0;
+            mainGroup = 11;
+            productRefGroup = 10;
+            projectDirPath = "";
+            projectRoot = "";
+        };
+/* End PBXProject section */
+
+/* Begin XCBuildConfiguration section */
+        30 = {
+            isa = XCBuildConfiguration;
+            buildSettings = { INFOPLIST_FILE = WebApp/Info.plist; PRODUCT_NAME = WebApp; };
+            name = Release;
+        };
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+        21 = {
+            isa = XCConfigurationList;
+            buildConfigurations = (30,);
+            defaultConfigurationName = Release;
+        };
+/* End XCConfigurationList section */
+
+    };
+    rootObject = 20;
+}
